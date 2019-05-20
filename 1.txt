@@ -1,0 +1,33 @@
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+char smart[10001];
+void smartinit(){
+int i, k;
+for(i=1,k=i;i&lt;=100;i++,k=i*i)
+smart[k]=i;
+}
+void plantext(char s[], int w){
+int x, y, z;
+for(x=0;x&lt;w;x++){
+for(z=0,y=x;z&lt;w;z++, y+=w){
+printf(&quot;%c&quot;,s[y]);
+}
+}
+printf(&quot;\n&quot;);
+}
+int main(){
+char s[10001];
+int cases, len, w;
+smartinit();
+scanf(&quot;%d&quot;,&amp;cases);
+gets(s);
+while(cases--){
+gets(s);
+len=strlen(s);
+w=smart[len];
+if(w==0)
+printf(&quot;INVALID\n&quot;);
+else
+plantext(s,w);
+}
+}
